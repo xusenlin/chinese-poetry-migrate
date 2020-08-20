@@ -16,7 +16,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	err = migrate.YuanSong("./chinese-poetry/yuanqu")
+	err = migrate.YuanQu("./chinese-poetry/yuanqu")
+	if err != nil {
+		panic(err)
+	}
+	err = migrate.LunYu("./chinese-poetry/lunyu")
 	if err != nil {
 		panic(err)
 	}

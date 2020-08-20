@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-type Author struct {
+type Authors struct {
 	ID        uint       `gorm:"primary_key"json:"-"`
 	CreatedAt time.Time  `json:"created_at"`
 	UpdatedAt time.Time  `json:"updated_at"`

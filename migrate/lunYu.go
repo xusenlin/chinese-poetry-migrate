@@ -10,12 +10,12 @@ import (
 	"strings"
 )
 
-type Song struct {
-	tableStruct.BasePoetry
-	Paragraphs []string
+type LY struct {
+	Chapter    string     `json:"chapter"`
+	Paragraphs []string     `json:"paragraphs"`
 }
 
-func YuanSong(jsonDir string) error {
+func LunYu(jsonDir string) error {
 
 	jsons, err := ioutil.ReadDir(jsonDir)
 	if err != nil {
@@ -26,7 +26,7 @@ func YuanSong(jsonDir string) error {
 		if !strings.HasSuffix(name,".json"){
 			continue
 		}
-		err := migrateSong(jsonDir + "/" + name)
+		err := migrateLunYu(jsonDir + "/" + name)
 		if err != nil {
 			return err
 		}
@@ -34,27 +34,24 @@ func YuanSong(jsonDir string) error {
 	return nil
 }
 
-func  migrateSong(path string) error {
-	fmt.Println("元曲数据迁移文件:" + path)
-	var yuanQu []Song
+func migrateLunYu(path string) error {
+	fmt.Println("论语数据迁移文件:" + path)
+	var lunYu []LY
 
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return err
 	}
-	err = json.Unmarshal(b, &yuanQu)
+	err = json.Unmarshal(b, &lunYu)
 	if err != nil {
 		return err
 	}
 
-	bar := pb.StartNew(len(yuanQu))
-	for _, s := range yuanQu {
-		base := tableStruct.BasePoetry{
-			Title:  s.Title,
-			Author: s.Author,}
+	bar := pb.StartNew(len(lunYu))
+	for _, s := range lunYu {
 
-		db.Conn.Create(&tableStruct.YuanQu{
-			BasePoetry: base,
+		db.Conn.Create(&tableStruct.LunYu{
+			Chapter: s.Chapter,
 			Paragraphs: strings.Join(s.Paragraphs, "||"),
 		})
 		bar.Increment()
