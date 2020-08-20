@@ -49,7 +49,7 @@ func Poetry(jsonDir string) error {
 func migrateAuthor(path string) error {
 
 	fmt.Println("作者数据迁移文件:"+path)
-	var authors []tableStruct.Author
+	var authors []tableStruct.Authors
 
 	b, err := ioutil.ReadFile(path)
 	if err != nil {

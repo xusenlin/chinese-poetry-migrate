@@ -6,10 +6,11 @@ import (
 
 func AutoMigrate()  {
 	db.Conn.AutoMigrate(
-		&Author{},
+		&Authors{},
 		&TangShi{},
 		&SongCi{},
 		&YuanQu{},
-		&LunYu{},
+		&SiShuWuJing{},
+		&YouMengYing{},
 	)
 }

@@ -1,6 +1,6 @@
 package tableStruct
 
-//论语
+//四书五经
 
 import (
 	"time"

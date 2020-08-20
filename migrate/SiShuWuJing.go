@@ -10,12 +10,12 @@ import (
 	"strings"
 )
 
-type LY struct {
+type SSWJ struct {
 	Chapter    string     `json:"chapter"`
 	Paragraphs []string     `json:"paragraphs"`
 }
 
-func LunYu(jsonDir string) error {
+func SiShuWuJing(jsonDir string) error {
 
 	jsons, err := ioutil.ReadDir(jsonDir)
 	if err != nil {
@@ -26,7 +26,7 @@ func LunYu(jsonDir string) error {
 		if !strings.HasSuffix(name,".json"){
 			continue
 		}
-		err := migrateLunYu(jsonDir + "/" + name)
+		err := migrateSiShuWuJing(jsonDir + "/" + name)
 		if err != nil {
 			return err
 		}
@@ -34,23 +34,23 @@ func LunYu(jsonDir string) error {
 	return nil
 }
 
-func migrateLunYu(path string) error {
-	fmt.Println("论语数据迁移文件:" + path)
-	var lunYu []LY
+func migrateSiShuWuJing(path string) error {
+	fmt.Println("四书五经数据迁移文件:" + path)
+	var sishuwujing []SSWJ
 
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return err
 	}
-	err = json.Unmarshal(b, &lunYu)
+	err = json.Unmarshal(b, &sishuwujing)
 	if err != nil {
 		return err
 	}
 
-	bar := pb.StartNew(len(lunYu))
-	for _, s := range lunYu {
+	bar := pb.StartNew(len(sishuwujing))
+	for _, s := range sishuwujing {
 
-		db.Conn.Create(&tableStruct.LunYu{
+		db.Conn.Create(&tableStruct.SiShuWuJing{
 			Chapter: s.Chapter,
 			Paragraphs: strings.Join(s.Paragraphs, "||"),
 		})
