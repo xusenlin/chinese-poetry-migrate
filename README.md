@@ -12,3 +12,4 @@ https://github.com/chinese-poetry/chinese-poetry
 - YouMengYing 幽梦影 
 ## 使用
 将 chinese-poetry 仓库克隆到和此工具同一个目录，运行迁移即可。
+目前 幽梦影的 comment 字段不统一，需要修改，四书五经 并不是统一的 [] 结构，也需要修改
