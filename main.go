@@ -11,7 +11,7 @@ import (
 func main() {
 	db.InitConn()
 	tableStruct.AutoMigrate()
-
+	//唐诗宋诗
 	//err := migrate.Poetry("./chinese-poetry/json")
 	//if err != nil {
 	//	panic(err)
@@ -28,7 +28,11 @@ func main() {
 	//if err != nil {
 	//	panic(err)
 	//}
-	err := migrate.YouMengYing("./chinese-poetry/youmengying")
+	//err := migrate.YouMengYing("./chinese-poetry/youmengying")
+	//if err != nil {
+	//	panic(err)
+	//}
+	err := migrate.SongCi("./chinese-poetry/ci")
 	if err != nil {
 		panic(err)
 	}

@@ -6,6 +6,7 @@ https://github.com/chinese-poetry/chinese-poetry
 - Authors 作者
 - LunYu  论语
 - TangShi 唐诗
+- SongShi 宋诗
 - SongCi 宋词
 - YuanQu 元曲
 - SiShuWuJing  四书五经

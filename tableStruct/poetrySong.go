@@ -20,6 +20,10 @@ type TangShi struct { //唐诗
 	BasePoetry
 	Paragraphs string `json:"paragraphs"`
 }
+type SongShi struct { //宋诗
+	BasePoetry
+	Paragraphs string `json:"paragraphs"`
+}
 
 type SongCi struct { //宋词
 	BasePoetry

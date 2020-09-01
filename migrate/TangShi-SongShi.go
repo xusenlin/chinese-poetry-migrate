@@ -106,7 +106,7 @@ func  migratePoetry(path string) error {
 			})
 		}
 		if strings.Contains(path, "song") {
-			db.Conn.Create(&tableStruct.SongCi{
+			db.Conn.Create(&tableStruct.SongShi{
 				BasePoetry: base,
 				Paragraphs: strings.Join(p.Paragraphs, "||"),
 			})

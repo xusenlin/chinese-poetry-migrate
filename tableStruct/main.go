@@ -12,5 +12,6 @@ func AutoMigrate()  {
 		&YuanQu{},
 		&SiShuWuJing{},
 		&YouMengYing{},
+		&SongShi{},
 	)
 }
